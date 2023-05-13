@@ -1,0 +1,220 @@
+/* assets/css/retro80s.css */
+
+body {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    color: #FF48C4;
+    background-color: #2B2A30;
+    background-repeat: repeat;
+  }
+  
+  body {
+    position: relative;
+    background: linear-gradient(135deg, #00FF00, #FFFF00, #FF00FF, #00FFFF, #FF0000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  .container {
+    position: relative;
+    overflow: hidden; /* Added to prevent child elements from overlaying */
+    border: 3px solid #FF48C4;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(43, 42, 48, 0.8);
+    margin-top: 20px;
+  }
+  
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+  }
+  
+  .container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px);
+    animation: linesAnimation 3s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes linesAnimation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  
+  .card {
+    border: 3px solid #FF48C4;
+    background-color: rgba(43, 42, 48, 0.8);
+  }
+  
+  .card-title {
+    border-bottom: 3px solid #FF48C4;
+  }
+  
+  input,
+  select,
+  button {
+    border: 3px solid #FF48C4;
+    background-color: #2B2A30;
+    color: #FF48C4;
+  }
+  
+  button {
+    color: #2B2A30;
+    background-color: #FF48C4;
+  }
+  
+  button:hover {
+    color: #FF48C4;
+    background-color: #2B2A30;
+  }
+  
+  .navbar {
+    background-color: rgba(43, 42, 48, 0.8);
+    border-bottom: 3px solid #FF48C4;
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #FF48C4;
+  }
+  
+  .navbar-brand:hover,
+  .navbar-nav .nav-link:hover {
+    color: #FFF;
+  }
+  
+
+  button {
+    color: #FF48C4;
+    background-color: #2B2A30;
+  }
+  
+  button:hover {
+    color: #2B2A30;
+    background-color: #FF48C4;
+  }
+  
+  .btn-primary {
+    background-color: #FF48C4;
+    border-color: #FF48C4;
+    color: #2B2A30;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2B2A30;
+    border-color: #2B2A30;
+    color: #FF48C4;
+  }
+  
+
+
+/* Additional Crazy Styles */
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px #FF48C4;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF48C4' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-item-fancy {
+  animation: neonGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 3px #FF48C4, 0 0 5px #FF48C4, 0 0 7px #FF48C4;
+  }
+  to {
+    text-shadow: 0 0 5px #FF48C4, 0 0 7px #FF48C4, 0 0 10px #FF48C4, 0 0 12px #FF48C4;
+  }
+}
+
+.navbar-fancy {
+  background-color: rgba(43, 42, 48, 0.8);
+  border-bottom: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand-fancy {
+  color: #FF48C4;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #FF48C4, 0 0 15px #FF48C4, 0 0 20px #FF48C4;
+}
+
+.container-fancy {
+  background-color: #2B2A30;
+  border: 2px dashed #FF48C4;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+@keyframes matrixRain {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(1000px);
+  }
+}
+
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.matrix-column {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  animation: matrixRain 10s linear infinite;
+}
+
+.matrix-letter {
+  position: relative;
+  font-size: 14px;
+  color: #FF48C4;
+  opacity: 0.8;
+  transform: translateY(-1000px);
+}
+
+/* Additional Crazy Styles End */
+
+
+

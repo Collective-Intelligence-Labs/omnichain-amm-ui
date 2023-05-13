@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option csharp_namespace = "cila.Domain";
+
+enum DomainEventType {
+  UNSPECIFIED = 0;
+  NFT_MINTED = 1;
+  NFT_TRANSFERED = 2;
+  AMM_CREATED = 3;
+  LIQUIDITY_ADDED = 4;
+  LIQUIDITY_REMOVED = 5;
+  TOKENS_SWAPPED = 6;
+  FUNDS_DEPOSITED = 7;
+  FUNDS_WITHDRAWN = 8;
+};
+
+message DomainEvent {
+  uint64 evnt_idx = 1;
+  DomainEventType evnt_type = 2;
+  bytes evnt_payload = 3;
+  string aggregate_id = 4;
+}
+
+message NFTMintedPayload {
+    bytes hash = 1;
+    bytes owner = 2;
+}
+
+message NFTTransferedPayload {
+    bytes hash = 1;
+    bytes from = 2;
+    bytes to = 3;
+}
+
+message AMMCreatedPayload {
+  bytes asset1 = 1;
+  bytes asset2 = 2;
+  uint64 supply1 = 3;
+  uint64 supply2 = 4;
+  bytes owner = 5;
+}
+
+message LiquidityAddedPayload {
+  uint64 amount1 = 1;
+  uint64 amount2 = 2;
+  bytes account = 3;
+}
+
+message LiquidityRemovedPayload {
+  uint64 shares = 1;
+  uint64 amount1 = 2;
+  uint64 amount2 = 3;
+  bytes account = 4;
+}
+
+message TokensSwapedPayload {
+  int64 amount_from = 1;
+  bytes asset_from = 2;
+  int64 amount_to = 3;
+  bytes asset_to = 4;
+  bytes account = 5;
+}
+
+message FundsWithdrawnPayload {
+  bytes asset = 1;
+  uint64 amount = 2;
+  bytes account =3;
+}
+
+message FundsDepositedPayload {
+  bytes asset = 1;
+  uint64 amount = 2;
+  bytes account = 3;
+}

@@ -1,0 +1,58 @@
+/* assets/css/harry-potter.css */
+
+body {
+    font-family: 'HarryP', Arial, sans-serif; /* HarryP is a Harry Potter-like font, you need to include it in your project */
+    color: #000; /* The books often used black text */
+    background-color: #F1E5A3; /* Parchment color for a magical feel */
+    /*background-image: url('/path/to/hogwarts-background.png'); /* You can use a Hogwarts image as a background */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .container {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(241, 229, 163, 0.8); /* Semi-transparent parchment color */
+  }
+  
+  .card {
+    border: 1px solid #000;
+    background-color: rgba(241, 229, 163, 0.8);
+  }
+  
+  .card-title {
+    border-bottom: 1px solid #000;
+  }
+  
+  input, select, button {
+    border: 1px solid #000;
+    background-color: #F1E5A3;
+    color: #000;
+  }
+  
+  button {
+    color: #F1E5A3;
+    background-color: #000;
+  }
+  
+  button:hover {
+    color: #000;
+    background-color: #F1E5A3;
+  }
+  
+  .navbar {
+    background-color: rgba(241, 229, 163, 0.8);
+    border-bottom: 1px solid #000;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #000;
+  }
+  
+  .navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #7A6855; /* Darker parchment color for hover */
+  }
+  
+
+  

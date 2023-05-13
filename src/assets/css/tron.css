@@ -1,0 +1,110 @@
+/* Override Bootstrap styles */
+body {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    color: #FF48C4;
+    background-color: #2B2A30;
+    background-repeat: repeat;
+  }
+  
+  body {
+    position: relative;
+    background: linear-gradient(135deg, #00FF00, #FFFF00, #FF00FF, #00FFFF, #FF0000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  .container {
+    position: relative;
+    overflow: hidden; /* Added to prevent child elements from overlaying */
+    border: 3px solid #FF48C4;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(43, 42, 48, 0.8);
+    margin-top: 20px;
+  }
+  
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+  }
+  
+  .container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px);
+    animation: linesAnimation 3s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes linesAnimation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  
+  .card {
+    border: 3px solid #FF48C4;
+    background-color: rgba(43, 42, 48, 0.8);
+  }
+  
+  .card-title {
+    border-bottom: 3px solid #FF48C4;
+  }
+  
+  input,
+  select,
+  button {
+    border: 3px solid #FF48C4;
+    background-color: #2B2A30;
+    color: #FF48C4;
+  }
+  
+  button {
+    color: #FF48C4;
+    background-color: #2B2A30;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    color: #2B2A30;
+    background-color: #FF48C4;
+  }
+  
+  .btn-primary {
+    background-color: #FF48C4;
+    border-color: #FF48C4;
+    color: #2B2A30;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2B2A30;
+    border-color: #2B2A30;
+    color: #FF48C4;
+  }
+  

@@ -1,0 +1,57 @@
+/* Override Bootstrap styles */
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .card-body{
+    background: black;
+  }
+
+  .navbar {
+    background-color: #000;
+  }
+  
+  .btn-primary {
+    background-color: #00ff00;
+    border-color: #00ff00;
+  }
+  
+  .btn-primary:hover {
+    background-color: #008800;
+    border-color: #008800;
+  }
+  
+  /* Matrix-inspired background effect */
+  body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: #000;
+    background-image: linear-gradient(#00ff00 1px, transparent 1px),
+                      linear-gradient(90deg, #00ff00 1px, transparent 1px),
+                      linear-gradient(#008800 1px, transparent 1px),
+                      linear-gradient(90deg, #008800 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -50px -50px;
+    animation: matrix-bg 15s linear infinite;
+  }
+  
+  @keyframes matrix-bg {
+    0% {
+      background-position: -50px -50px;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .navbar{
+    color: #00ff00 
+  }

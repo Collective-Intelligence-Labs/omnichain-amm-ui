@@ -1,0 +1,53 @@
+/* assets/css/star-wars.css */
+
+body {
+    font-family: 'Star Jedi', Arial, sans-serif; /* Star Jedi is a Star Wars-like font, you need to include it in your project */
+    color: #FFE81F; /* Yellow like the Star Wars logo */
+    background-color: #000; /* Space is usually portrayed as black */   background-repeat: repeat;
+  }
+  
+  .container {
+    border: 2px solid #FFE81F;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black to let the starfield show through */
+  }
+  
+  .card {
+    border: 2px solid #FFE81F;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .card-title {
+    border-bottom: 2px solid #FFE81F;
+  }
+  
+  input, select, button {
+    border: 2px solid #FFE81F;
+    background-color: #000;
+    color: #FFE81F;
+  }
+  
+  button {
+    color: #000;
+    background-color: #FFE81F;
+  }
+  
+  button:hover {
+    color: #FFE81F;
+    background-color: #000;
+  }
+  
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #FFE81F;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #FFE81F;
+  }
+  
+  .navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #FFF;
+  }
+  

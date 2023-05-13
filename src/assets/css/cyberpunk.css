@@ -1,0 +1,56 @@
+/* assets/css/cyberpunk.css */
+
+body {
+    font-family: 'Orbitron', Arial, sans-serif; /* Orbitron is a futuristic font */
+    color: #0AFFEF; /* Bright neon cyan for a cyberpunk feel */
+    background-color: #000; /* Dark background */
+    /* background-image: url('/path/to/cyber-city.png'); /* An image of a cyberpunk city */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .container {
+    border: 1px solid #0AFFEF;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  }
+  
+  .card {
+    border: 1px solid #0AFFEF;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .card-title {
+    border-bottom: 1px solid #0AFFEF;
+  }
+  
+  input, select, button {
+    border: 1px solid #0AFFEF;
+    background-color: #000;
+    color: #0AFFEF;
+  }
+  
+  button {
+    color: #000;
+    background-color: #0AFFEF;
+  }
+  
+  button:hover {
+    color: #0AFFEF;
+    background-color: #000;
+  }
+  
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #0AFFEF;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #0AFFEF;
+  }
+  
+  .navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #FFF; /* White for hover */
+  }
+
