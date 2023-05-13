@@ -1,5 +1,22 @@
 <template>
     <div>
+        <b-card title="Token Balances" class="mb-4">
+  <b-table :items="balances" striped hover>
+    <template #cell(asset)="row">
+      {{ row.item.asset }}
+    </template>
+    <template #cell(balance)="row">
+      {{ row.item.balance }}
+    </template>
+    <template #cell(account)="row">
+      {{ row.item.account }}
+    </template>
+    <template #cell(daoId)="row">
+      {{ row.item.daoId }}
+    </template>
+  </b-table>
+</b-card>
+
       <b-card title="Deposit/Withdraw Tokens" class="mb-4">
         <b-form>
           <b-form-group id="token-group" label="Token" label-for="token">
@@ -25,7 +42,12 @@
           token: null,
           amount: null
         },
-        tokens: []  // You'll need to populate this array with actual data.
+        tokens: ['Token A', 'Token B', 'Token C'], // You'll need to populate this array with actual data.
+        balances: [
+      { asset: 'Token A', balance: 100, account: 'Account A', daoId: 'DAO ID A' },
+      { asset: 'Token B', balance: 200, account: 'Account B', daoId: 'DAO ID B' },
+      { asset: 'Token C', balance: 300, account: 'Account C', daoId: 'DAO ID C' }
+    ] // Replace with your actual token balances
       }
     },
     methods: {

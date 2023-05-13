@@ -19,23 +19,42 @@
   </template>
   
   <script>
-  export default {
-    name: 'TokenSwap',
-    data() {
-      return {
-        fromToken: null,
-        toToken: null,
-        amount: null,
-        tokens: ['Token A', 'Token B', 'Token C'] // Replace with actual tokens
+    import {SwapTokensPayload} from '../Proto/command_pb'
+    import axios from 'axios';
+    import cila from '@/cila';
+    
+
+    export default {
+      name: 'TokenSwap',
+      data() {
+        return {
+          fromToken: null,
+          toToken: null,
+          amount: null,
+
+          
+          tokens: ["ETH" , "OP"], // Replace with actual tokens
+        }
+      },
+      async mounted() {
+        axios.defaults.baseURL = 'http://localhost:5276/api';
+        try {
+            const response = await axios.get('/markets/{id}', "MARKET_ID");
+            this.tokens = [response.asset1, response.asset2];
+            console.log(response);
+          } catch (error) {
+            console.error(error);
+          }
+      },
+      methods: {
+        async onSubmit(evt) {
+          evt.preventDefault();
+          const cmd = new SwapTokensPayload();
+          cmd.setAmount1(this.amount);
+          cmd.setAmount2(this.amount);
+          await cila.sendCommand(cmd);
+        }
       }
-    },
-    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        // Add logic to swap tokens
-        console.log(`Swapping ${this.amount} of ${this.fromToken} to ${this.toToken}`)
-      }
-    }
   }
   </script>
   

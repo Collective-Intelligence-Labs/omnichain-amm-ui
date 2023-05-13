@@ -13,6 +13,10 @@
   </template>
   
   <script>
+    import {RemoveLiquidityPayload} from '../Proto/command_pb'
+    import cila from '../cila'
+
+
   export default {
     data() {
       return {
@@ -22,9 +26,12 @@
       }
     },
     methods: {
-      onSubmit(event) {
-        event.preventDefault();
-        // Implement the logic to remove liquidity here. You have access to this.form.liquidityShare.
+      async onSubmit(evt) {
+        evt.preventDefault();
+        const cmd = new RemoveLiquidityPayload();
+        cmd.setAmount1(this.amount);
+        cmd.setAmount2(this.amount);
+        await cila.sendCommand(cmd);
       }
     }
   }

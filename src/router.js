@@ -3,6 +3,7 @@ import TokenSwap from './views/TokenSwap.vue'
 import AddLiquidity from './views/AddLiquidity.vue'
 import RemoveLiquidity from './views/RemoveLiquidity.vue'
 import DepositWithdraw from './views/DepositWithdraw.vue'
+//import MarketListing from './views/MarketListing.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     name: 'DepositWithdraw',
     component: DepositWithdraw
   },
+  /*{
+    path: '/markets',
+    name: 'MarketListing',
+    component: MarketListing
+  }, */
   {
     path: '/:catchAll(.*)',
     redirect: '/swap'
