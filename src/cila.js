@@ -10,8 +10,11 @@ import axios from 'axios';
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
+const MARKET_ID = "MARKET_ID_HERE";
+
 export default {
 
+    
     async sendCommand(cmd){
 
         axios.defaults.baseURL = 'http://localhost:5025/';
@@ -47,6 +50,42 @@ export default {
           console.error(error);
         }
     },
+
+    async getBalances(){
+        try {
+            axios.defaults.baseURL = 'http://localhost:5276/api';
+            const accountId = await this.getCurrentAccount();
+            const response = await axios.get(`/balances/${accountId}`);
+            return response.data;
+          } catch (error) {
+            console.error('Error fetching market items:', error);
+          }
+    },
+
+    async getTokens(){
+        try {
+            axios.defaults.baseURL = 'http://localhost:5276/api';
+            const response = await axios.get(`/chains/tokens`);
+            return response.data;
+          } catch (error) {
+            console.error('Error fetching market items:', error);
+          }
+    },
+
+    async getMarket(){
+        try {
+            axios.defaults.baseURL = 'http://localhost:5276/api';
+            const response = await axios.get(`/markets/${MARKET_ID}`);
+            return response.data;
+          } catch (error) {
+            console.error('Error fetching market items:', error);
+          }
+    },
+
+    async getCurrentAccount(){
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        return accounts[0];
+    }
 
 
 }

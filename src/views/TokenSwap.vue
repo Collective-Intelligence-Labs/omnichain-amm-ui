@@ -46,6 +46,9 @@
             console.error(error);
           }
       },
+      async created() {
+        this.tokens = await cila.getTokens();
+    },
       methods: {
         async onSubmit(evt) {
           evt.preventDefault();

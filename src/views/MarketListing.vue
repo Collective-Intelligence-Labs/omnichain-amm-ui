@@ -60,6 +60,9 @@ export default {
       } catch (error) {
         console.error('Error fetching market items:', error);
       }
+    },
+    async fetchAvailableTokens() {
+        
     }
   }
 };

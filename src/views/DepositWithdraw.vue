@@ -35,6 +35,11 @@
   </template>
   
   <script>
+import {DepositFundsPayload, WithdrawFundsPayload} from '../Proto/command_pb'
+
+import cila from '../cila'
+
+
   export default {
     data() {
       return {
@@ -51,15 +56,22 @@
       }
     },
     methods: {
-      deposit() {
-        // Implement the logic to deposit tokens here. You have access to this.form.token and this.form.amount.
+      async deposit() {
+        const cmd = new DepositFundsPayload();
+        cmd.setAmount1(this.amount);
+        cmd.setAmount2(this.amount);
+        await cila.sendCommand(cmd);
       },
-      withdraw() {
-        // Implement the logic to withdraw tokens here. You have access to this.form.token and this.form.amount.
+      async withdraw() {
+        const cmd = new WithdrawFundsPayload();
+        cmd.setAmount1(this.amount);
+        cmd.setAmount2(this.amount);
+        await cila.sendCommand(cmd);
       }
     },
-    created() {
-      // Fetch your tokens here and assign them to this.tokens.
+    async created() {
+        this.balances = await cila.getBalances();
+        this.tokens = await cila.getTokens();
     }
   }
   </script>

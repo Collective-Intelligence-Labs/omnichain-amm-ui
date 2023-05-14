@@ -40,7 +40,10 @@
         tokens: ['Token A', 'Token B', 'Token C'] // Replace with actual tokens
       }
     },
-   
+    async created() {
+        this.tokens = await cila.getTokens();
+        this.market = await cila.getMarket();
+    },
     methods: {
     async onSubmit(evt) {
         evt.preventDefault();
