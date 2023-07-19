@@ -20,7 +20,6 @@
   
   <script>
     import {SwapTokensPayload} from '../Proto/command_pb'
-    import axios from 'axios';
     import cila from '@/cila';
     
 
@@ -31,20 +30,9 @@
           fromToken: null,
           toToken: null,
           amount: null,
-
           
           tokens: ["ETH" , "OP"], // Replace with actual tokens
         }
-      },
-      async mounted() {
-        axios.defaults.baseURL = 'http://localhost:5276/api';
-        try {
-            const response = await axios.get('/markets/{id}', "MARKET_ID");
-            this.tokens = [response.asset1, response.asset2];
-            console.log(response);
-          } catch (error) {
-            console.error(error);
-          }
       },
       async created() {
         this.tokens = await cila.getTokens();
