@@ -43,8 +43,8 @@ aggregate Union
 state Union 
 {   
     id;
-    list Members;
-    disctionary Rules;
+    list<uint64> Members;
+    disctionary<uint64,string> Rules;
 
     when UnionCreated(e) {
         id = e.id
