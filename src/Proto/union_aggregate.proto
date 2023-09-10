@@ -1,0 +1,64 @@
+syntax = "proto3.web3.dsl";
+
+import "command.proto";
+import "event.proto";
+
+aggregate Union
+{
+    authority default () => consent(24h) of state.Members
+
+    on StartUnion(c)
+    {   
+        emit UnionCreated { id = c.id }
+        foreach(m in c.members) {
+            emit MemberAdded {id = m}
+        }
+        for (i = 0; i < c.rules; i++) {
+            emit RuleSet {id = i, rule = c.rules[i] }
+        }
+    }
+
+    on AddMember(c)
+    {
+        if (state.Members has c.id) {
+            error "Member is already added to the Union"
+        }
+        emit MemberAdded { id = c.id }
+    }
+
+    on RemoveMember(c) authority () => consent(24h) of state.Members.except(c.id)
+    {
+        if (not state.Members has c.id) {
+            error "Member is not in the Union"
+        }
+        emit MemberRemoved(id = c.id)
+    }
+
+    on SetRule(c)
+    {
+        emit RuleSet(id = c.id, rule = c.rule)
+    }
+}
+
+state Union 
+{   
+    id;
+    list Members;
+    disctionary Rules;
+
+    when UnionCreated(e) {
+        id = e.id
+    }
+    
+    when MemberAdded(e) {
+        Member.add(e.id)
+    }
+
+    when MemberRemoved(e) {
+        Members.remove(e.id)
+    }
+
+    when RuleSet(e){
+        Rules[id] = e.rule
+    }
+}

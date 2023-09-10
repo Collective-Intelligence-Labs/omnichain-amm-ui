@@ -12,6 +12,11 @@ enum DomainEventType {
   TOKENS_SWAPPED = 6;
   FUNDS_DEPOSITED = 7;
   FUNDS_WITHDRAWN = 8;
+  UNION_STARTED = 9;
+  MEMBER_ADDED = 10;
+  MEMBER_REMOVED = 11;
+  RULE_SET = 12;
+  IDENTITY_REGISTRED = 13;
 };
 
 message DomainEvent {
@@ -19,6 +24,7 @@ message DomainEvent {
   DomainEventType evnt_type = 2;
   bytes evnt_payload = 3;
   string aggregate_id = 4;
+  bytes sender = 5;
 }
 
 message NFTMintedPayload {
@@ -71,4 +77,26 @@ message FundsDepositedPayload {
   bytes asset = 1;
   uint64 amount = 2;
   bytes account = 3;
+}
+
+message RegisterIdentity {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message UnionCreated {
+  uint64 id = 1;
+}
+
+message MemberAdded {
+  uint64 id = 1;
+}
+
+message MemberRemoved {
+  uint64 id = 1;
+}
+
+message RuleSet {
+  uint64 id = 1;
+  string rule = 2;
 }

@@ -10,13 +10,19 @@ enum CommandType {
   SWAP = 6;
   DEPOSIT_FUNDS = 7;
   WITHDRAW_FUNDS = 8;
-};
+  START_UNION = 9;
+  ADD_MEMBER = 10;
+  REMOVE_MEMBER = 11;
+  SET_RULE = 12;
+  REGISTER_IDENTITY = 13;
+}
 
 message Command {
   bytes aggregate_id = 1;
   bytes cmd_signature = 2;
   CommandType cmd_type = 3;
   bytes cmd_payload = 4;
+  bytes sender = 5;
 }
 
 message MintNFTPayload {
@@ -59,4 +65,28 @@ message DepositFundsPayload {
 message WithdrawFundsPayload {
   uint64 amount1 = 1;
   uint64 amount2 = 2;
+}
+
+message RegisterIdentity {
+  string name = 1;
+  uint64 id = 2;
+}
+
+message StartUnion {
+  uint64 id = 1;
+  repeated uint64 members = 2;
+  repeated uint64 rules = 3;
+}
+
+message AddMember {
+  uint64 id = 1;
+}
+
+message RemoveMember {
+  uint64 id = 1;
+}
+
+message SetRule {
+  uint64 id = 1;
+  string rule = 2;
 }
